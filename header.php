@@ -82,26 +82,22 @@ if(Modernizr.fontface) {
   <div class='col-lg-3  col-md-4 col-sm-12 col-xs-12 top-buffer-obiect'>
   <iframe src="//s.mojewronki.pl/public/omega/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
   </div>
+  <?php tha_header_bottom(); ?>
 </div>
+<?php tha_header_after(); ?>
 
 <div class="row hidden-xs hidden-print">
-<div class="col-lg-12 col-md-12 col-sm-12 top-buffer-obiect">
- <?php /* Primary navigation */
-                                    wp_nav_menu( array(
-                                      'menu' => 'top_menu',
-                                      'depth' => 2,
-                                      'container' => false,
-                                      'menu_class' => 'nav nav-tabs',
-                                      //Process nav menu using our custom nav walker
-                                      'walker' => new wp_bootstrap_navwalker())
-                                    );
-                              ?>
+    <div class="col-lg-12 col-md-12 col-sm-12 top-buffer-obiect">
+    <?php /* Primary navigation */
+        wp_nav_menu( array(
+            'menu' => 'top_menu',
+            'depth' => 1,
+            'container' => false,
+            'menu_class' => 'nav nav-tabs',
+            //Process nav menu using our custom nav walker
+            'walker' => new wp_bootstrap_navwalker())
+            );
+    ?>
+    </div>
 </div>
-
-</div>
-
-
-
-
-
-    <div class="row content">
+<div class="row content">
