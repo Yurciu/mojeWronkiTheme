@@ -62,26 +62,28 @@ if(Modernizr.fontface) {
 <?php wp_head(); ?>
 
  </head>
-<?php flush(); ?>
 <body class='container spraybg' itemscope itemtype="http://schema.org/WebPage">
+<?php tha_body_top();?>
+<?php tha_header_before(); ?>
 <div class='row header text-center' id='header'>
-
-<div class='col-lg-2 col-md-12 col-sm-12 col-xs-12 '>
-<a href="<?php bloginfo( 'home' ); ?>" title="mojeWronki/pl- Lokalny Portal Informacyjny" class="logo">
-<img height='128px' width='128px' src="http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png" alt="<?php wp_title(); ?> <?php bloginfo('description'); ?>" itemprop='primaryImageOfPage'/></a>
-  </div>
+    <?php tha_header_top(); ?>
+    <div class='col-lg-2 col-md-12 col-sm-12 col-xs-12 '>
+        <a href="<?php bloginfo( 'home' ); ?>" title="mojeWronki/pl- Lokalny Portal Informacyjny" class="logo">
+        <img height='128px' width='128px' src="http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png" alt="<?php wp_title(); ?>
+        <?php bloginfo(    'description'); ?>" itemprop='primaryImageOfPage'/></a>
+    </div>
 
   <div class='col-lg-1 hidden-md hidden-sm hidden-xs'></div>
   <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
   <iframe src="//s.mojewronki.pl/public/bramy/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
-
   </div>
   <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
   </div>
   <div class='col-lg-3  col-md-4 col-sm-12 col-xs-12 top-buffer-obiect'>
   <iframe src="//s.mojewronki.pl/public/omega/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
   </div>
-  </div>
+</div>
+
 <div class="row hidden-xs hidden-print">
 <div class="col-lg-12 col-md-12 col-sm-12 top-buffer-obiect">
  <?php /* Primary navigation */
