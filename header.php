@@ -1,9 +1,10 @@
-﻿
-
-<!doctype html>
-<html class="no-js" lang="pl-PL" prefix="og: http://ogp.me/ns#">
+﻿<!doctype html>
+<?php tha_html_before(); ?>
+<html class="no-js" <?=language_attributes(); ?>>
 <head>
-<meta charset="utf-8"><meta name='viewport' content='width=device-width, initial-scale=1' />
+<?php tha_head_top(); ?>
+<meta charset="<?=bloginfo('charset');?>">
+<meta name='viewport' content='width=device-width, initial-scale=1' />
 <?php SEOheader(); ?>
 <link href="https://plus.google.com/103654230087671023091" rel="publisher" />
 <link rel="stylesheet" href="//mojewronki.pl/wp-content/themes/wronczanie/style.css" type="text/css" />
