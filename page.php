@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-
+<?php tha_content_before() ?>
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 col-lg-push-2 col-md-push-2 col-sm-push-3">
         <article class="news news-list">
 
@@ -15,13 +15,6 @@
 </a>
 <?php the_content('Czytaj więcej &rarr;'); ?>
 
-<?php //$child_pages = $wpdb->get_results("SELECT *    FROM $wpdb->posts WHERE post_parent = ".$post->ID."    AND post_type = 'page' ORDER BY menu_order", 'OBJECT');    ?>
-<?php //if ( $child_pages ) : foreach ( $child_pages as $pageChild ) : setup_postdata( $pageChild ); ?>
-<!-- <div class="child-thumb"> -->
-  <?php //echo get_the_post_thumbnail($pageChild->ID, 'thumbnail'); ?>
-<!--  <a href="<?php //echo  get_permalink($pageChild->ID); ?>" rel="bookmark" title="<?php //echo $pageChild->post_title; ?>"><?php //echo $pageChild->post_title; ?></a> -->
-<!-- </div> -->
-<?php //endforeach; endif; ?>
 
 <div class="clear"></div>
 </div> <!-- end entry -->

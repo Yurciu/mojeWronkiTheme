@@ -94,9 +94,6 @@ function getMainContentView($categoryNumber, $NewsPerCategory = 7){
             	get_the_post_thumbnail(1,'bigpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
 
 
-            //echo "<img width='653' height='404' class='thumbnail  img-behavior' src='http://mojewronki.pl/wp-content/uploads/2014/12/16-9rot-653x404.jpg' alt=''/>";
-
-
           	echo "<h1 class='article-h1' itemprop='headline'>"; the_title(); echo "</h1>";
           	echo "</a></div>";
 
@@ -112,8 +109,6 @@ function getMainContentView($categoryNumber, $NewsPerCategory = 7){
             		//Jeżeli nie ma miniaturki, pobierz wypełniacz
             		get_the_post_thumbnail(1,'smallpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
 
-
-       //echo "<img width='200' height='144' class='thumbnail  img-behavior' src='http://mojewronki.pl/wp-content/uploads/2014/12/16-9-200x124.jpg' alt='". the_title_attribute()."' />";
 
           		echo "<h2 itemprop='headline' class='article-h2'>"; the_title(); echo "</h2></a></div></div>"; //</div>
           		if ($NewsPerCategory == 5 || $NewsPerCategory == 3 || $NewsPerCategory == 1) echo "<div class='clearfix visible-xs visible-sm'></div>";
