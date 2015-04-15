@@ -3,16 +3,23 @@
 
 
 <div class="row footer text-center" itemscope itemtype='https://schema.org/Organization'>
-
-<a class='arrow-link hidden-print' rel="nofollow" href="<?php add_query_arg( $wp->query_string, '', home_url( $wp->request ) ); ?>#header"><div class="shadow arrow">^</div></a>
+  <a class='arrow-link hidden-print' rel="nofollow" href="<?php add_query_arg( $wp->query_string, '', home_url( $wp->request ) ); ?>#header">
+    <div class="shadow arrow">^</div>
+  </a>
   <div class="col-lg-12">
+    <h4><em>Sprawdź, czy pisaliśmy o tym, co Ciebie interesuje.</em></h4>
+    <?php get_search_form(); ?>
+    <hr>
+    <strong>
+      <a href='http://mojewronki.pl/wp-login.php' rel="nofollow" >
+      <h4>
+        <?php bloginfo('name'); ?>
+      </a>
+    </strong>
+    <br> <?php bloginfo('description');
+    echo"</h4><br>";
 
-  <h4><em>Sprawdź, czy pisaliśmy o tym, co Ciebie interesuje.</em></h4>
-<?php get_search_form(); ?>
-  <hr>
-<strong><a href='http://mojewronki.pl/wp-login.php' rel="nofollow" ><h4>
-<?php bloginfo('name'); ?></a></strong> <br> <?php bloginfo('description');
-echo"</h4><br>";
+
 $blogusers = get_users( array( 'role' => 'administrator', 'fields' => array('ID','display_name' ) ) );
 // Array of stdClass objects.
 shuffle($blogusers);
@@ -28,28 +35,22 @@ if($ediOffice >= 4){
   }
 
   $ediOffice--;
-}
-echo "<div class='clearfix'></div>";?>
+} ?>
+<div class='clearfix'></div>
 
 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('footer-sidebar') ) :endif;?>
-  </div>
+</div>
+<?php tha_fotter_bottom(); ?>
 </div>
 
 <div class="col-lg-12 col-md-12 col-sm-12 col-xm-12">
   <small class='optronet'>Wspierane technologicznie przez <a href="http://optronet.pl" rel="nofollow">optronet.pl</a></small>
 </div>
+<?php tha_footer_after(); ?>
 
 
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<div id='fb-root'></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/pl_PL/sdk.js#xfbml=1&appId=898461470187056&version=v2.0";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -73,5 +74,8 @@ function zamknijCookie() {
 <?php
 if(!isset($_COOKIE['cookie'])) echo "
 <div class='cookies text-center hidden-print hidden-xs'><button class='cookieButton' onclick='zamknijCookie();'>Akceptuje!</button><p>Portal mojeWronki.pl wykorzystuje pliki cookies do przechowywania treści na Twoim komputerze. <span class='hidden-xs'>Pomagają nam jeszcze lepiej informować Ciebie co się dzieje w gminie. <br /> <a href='http://ciasteczka.eu/#jak-wylaczyc-ciasteczka' rel='nofollow'/>Cookies statystyczne, reklamowe i funkcionalne w każdej chwili możesz wyłączyć w swojej przeglądarce.</a></span><br /> </p></div>"; ?>
+
+<?php tha_body_bottom(); ?>
+<?php wp_footer(); ?>
  </body>
 </html>

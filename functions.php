@@ -1,83 +1,72 @@
 <?php
+
+require_once('inc/tha-theme-hooks.php');
+
+/* General SEO
+*************************************************************************************************************************************************/
+add_filter('generalSEOElements', 'generalSEOElements');
+function generalSEOElements(){
+?>
+<meta property="og:locale" content="pl_PL">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mojeWronki">
+<meta property='og:url' content='http://mojewronki.pl'/>
+<meta property="article:publisher" content="https://www.facebook.com/mojewronki">
+<link href="https://plus.google.com/103654230087671023091" rel="publisher" />
+<meta name="alexaVerifyID" content="Uv5ngd8fswTM68vycTm2-PkuF2w"/>
+<meta name="msvalidate.01" content="74B7F74201C2FF6A9B104A9D8FCE92F7" />
+<?php
+}
 /* SEO
 *************************************************************************************************************************************************/
 add_filter('SEOheader', 'SEOheader');
 function SEOheader(){
 
+
+if(is_tag() || is_category() || is_front_page() || is_page()){
+  ?>
+    <meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />
+  <?php
+    echo "<meta property='og:description' content='"; echo bloginfo('description'); echo "'/>";
+    echo "<meta name='description' content='";echo bloginfo('description'); echo "'>";
+    echo "<meta name='robots' content='index, follow' />";
+
+}
 //Strona z newsem
   if(is_single()){
     echo "<title>mojeWronki.pl";echo ' | '; echo the_title() ;echo"</title>";
+    echo "<meta property='og:title' content='mojeWronki.pl | ";echo the_title(); echo"'/>";
+    $desc = substr(wp_strip_all_tags(get_post_field('post_content', $post->ID)),0,125);
+    $desc = str_replace(array("\r\n", "\r"), "\n", $desc);
+    if(empty($desc)) {
+      echo "<meta name='description' content='"; echo bloginfo('description'); echo"'>";
+      echo "<meta name='og:description' content='"; echo bloginfo('description'); echo"'>";
+    } else {
+      echo "<meta name='description' content='"; echo $desc; echo "...'>";
+      echo "<meta name='og:description' content='"; echo $desc; echo "...'>";
+    }
 
-    echo "<!--".$post->post_content."-->";
-    $desc = wp_strip_all_tags(get_post_field('post_content', $post->ID));
-
-    if(empty($desc)) echo "<meta name='description' content='Naszym zadaniem jest informowanie lokalnej społeczności o najświeższych wydarzeniach w gminie Wronki. Nieprzerwanie od 2010 roku.'>";
-    else {echo "<meta name='description' content='"; echo substr(wp_strip_all_tags(get_post_field('post_content', $post->ID)),0,125); echo "...'>";}
-
-    echo "<meta property='og:title' content='";echo the_title(); echo"'/>";
-    echo "<meta property='og:url' content='";echo get_permalink(); echo"'/>";
-    echo "<meta property='og:site_name' content='";echo bloginfo('name') ;echo"'/>";
-
-    if(empty($desc)) echo "<meta property='og:description' content='Naszym zadaniem jest informowanie lokalnej społeczności o najświeższych wydarzeniach w gminie Wronki. Nieprzerwanie od 2010 roku.'>";
-    else {echo "<meta property='og:description' content='"; echo substr(wp_strip_all_tags(get_post_field('post_content', $post->ID)),0,125); echo "...'>";}
     if(has_post_thumbnail()) echo "<meta property='og:image' content='".wp_get_attachment_url( get_post_thumbnail_id($post->ID) )."' />";
     else echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
-    echo "<meta property='og:image:width' content='155' />";
-    echo "<meta property='og:image:height' content='114' />";
+
   }
 
-  //Strona główna
-  if(is_front_page()){
+  if(is_front_page() || is_category()){
     echo "<title>"; echo bloginfo('name'); echo "</title>";
-    echo "<meta name='description' content='";echo bloginfo('description'); echo "'>";
-    echo "<meta property='og:title' content='mojeWronki.pl'/>";
-    echo "<meta property='og:url' content='http://mojewronki.pl/'/>";
-    echo "<meta property='og:site_name' content='";echo bloginfo('name'); echo"'/>";
-    echo "<meta property='og:description' content='mojeWronki.pl - wiadomości | kultura | wydarzenia | sport'/>";
-    echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
-    echo "<meta property='og:image:width' content='155' />";
-    echo "<meta property='og:image:height' content='114' />";
+    echo "<meta property='og:title' content='"; echo bloginfo('name'); echo "'/>";
   }
 
-  //Podstrony
   if(is_page()){
     echo "<title>mojeWronki.pl | "; echo the_title(); echo "</title>";
-    echo "<meta name='description' content='"; echo bloginfo('description'); echo "'>";
-    echo "<meta property='og:title' content='mojeWronki.pl'/>";
-    echo "<meta property='og:url' content='http://mojewronki.pl/'/>";
-    echo "<meta property='og:site_name' content='";echo bloginfo('name') ;echo"'/>";
-    echo "<meta property='og:description' content='mojeWronki.pl - wiadomości | kultura | wydarzenia | sport'/>";
-    echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
-    echo "<meta property='og:image:width' content='155' />";
-    echo "<meta property='og:image:height' content='114' />";
+    echo "<meta property='og:title' content='mojeWronki.pl | "; echo the_title(); echo "'/>";
   }
 
-    if(is_tag()){
+  if(is_tag()){
     echo "<title>mojeWronki.pl | "; echo single_tag_title(); echo "</title>";
-    echo "<meta name='description' content='"; echo bloginfo('description'); echo "'>";
-    echo "<meta property='og:title' content='mojeWronki.pl'/>";
-    echo "<meta property='og:url' content='http://mojewronki.pl/'/>";
-    echo "<meta property='og:site_name' content='";echo bloginfo('name') ;echo"'/>";
-    echo "<meta property='og:description' content='mojeWronki.pl - wiadomości | kultura | wydarzenia | sport'/>";
-    echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
-    echo "<meta property='og:image:width' content='155' />";
-    echo "<meta property='og:image:height' content='114' />";
+    echo "<meta property='og:title' content='mojeWronki.pl | "; echo single_tag_title(); echo "'/>";
   }
 
-   //Kategoria
-  if(is_category()){
-    echo "<title>"; echo bloginfo('name'); echo "</title>";
-    echo "<meta name='description' content='"; echo bloginfo('description'); echo "'>";
-    echo "<meta property='og:title' content='mojeWronki.pl'/>";
-    echo "<meta property='og:url' content='http://mojewronki.pl/'/>";
-    echo "<meta property='og:site_name' content='";echo bloginfo('name') ;echo"'/>";
-    echo "<meta property='og:description' content='mojeWronki.pl - wiadomości | kultura | wydarzenia | sport'/>";
-    echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
-    echo "<meta property='og:image:width' content='155' />";
-    echo "<meta property='og:image:height' content='114' />";
-  }
 
-  echo "<meta name='robots' content='index, follow' />";
 }
 
 
