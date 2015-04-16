@@ -242,8 +242,9 @@ img {
 }
 .img-responsive,
 .thumbnail > img,
-.thumbnail a > img
-.textwidget > img{
+.thumbnail a > img,
+.textwidget ~ img,
+.textwidget ~ center ~ img{
   display: block;
   max-width: 100%;
   height: auto;
