@@ -20,7 +20,7 @@
     <div class="news news-list">
         <h1 class='text-center'>Wyniki wyszukiwania</h1>
         <small class='text-center'>Wyszukiwana fraza <em itemprop='specialty'><?php echo get_search_query()."</em> została odnaleziona ";
-        if ($wp_query->found_posts > 1 echo $wp_query->found_posts." razy.</small>";
+        if ($wp_query->found_posts > 1) echo $wp_query->found_posts." razy.</small>";
         else echo $wp_query->found_posts." raz.</small>";
         ?>
         <hr>
