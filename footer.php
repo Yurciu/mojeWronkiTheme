@@ -42,8 +42,8 @@ if($ediOffice >= 4){
 </div>
 <small class='optronet'>Wspierane technologicznie przez <a href="http://optronet.pl" rel="nofollow">optronet.pl</a></small>
 
-<link rel="stylesheet" href="//localhost/wp-content/themes/wronczanie/ench.css" type="text/css" media="none" onload="if(media!='all')media='all'"/>
-<noscript><link rel="stylesheet" href="//localhost/wp-content/themes/wronczanie/ench.css"></noscript>
+<link rel="stylesheet" href="//mojewronki.pl/wp-content/themes/wronczanie/ench.css" type="text/css" media="none" onload="if(media!='all')media='all'"/>
+<noscript><link rel="stylesheet" href="//mojewronki.pl/wp-content/themes/wronczanie/ench.css"></noscript>
 
 <?php
 if(!isset($_COOKIE['cookie'])) echo "

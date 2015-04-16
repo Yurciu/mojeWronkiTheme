@@ -108,7 +108,8 @@ function getMainContentView($categoryNumber, $NewsPerCategory = 7){
     		echo "<div class='col-lg-12'><a itemprop='relatedLink' href='"; echo the_permalink(); echo "' title='"; the_title_attribute(); echo "' >";
 
             if ( has_post_thumbnail() )
-            	the_post_thumbnail('bigpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
+            	the_post_thumbnail('bigpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl', 'alt' => get_the_excerpt()));
+
             else
             	//Jeżeli nie ma miniaturki, pobierz wypełniacz
             	get_the_post_thumbnail(1,'bigpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
@@ -124,7 +125,7 @@ function getMainContentView($categoryNumber, $NewsPerCategory = 7){
       			<div class='text-center'><a itemprop='relatedLink' href='"; the_permalink(); echo "' title='"; the_title_attribute(); echo "'>";
 
             	if ( has_post_thumbnail() )
-            		the_post_thumbnail('smallpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
+            		the_post_thumbnail('smallpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl', 'alt' => get_the_excerpt()));
             	else
             		//Jeżeli nie ma miniaturki, pobierz wypełniacz
             		get_the_post_thumbnail(1,'smallpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));

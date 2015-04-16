@@ -133,9 +133,6 @@ th {
   a:visited {
     text-decoration: underline;
   }
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
@@ -245,7 +242,10 @@ img {
 }
 .img-responsive,
 .thumbnail > img,
-.thumbnail a > img {
+.thumbnail a > img,
+.textwidget ~ img,
+.textwidget ~ center ~ img,
+.entry img{
   display: block;
   max-width: 100%;
   height: auto;
