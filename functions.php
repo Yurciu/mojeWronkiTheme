@@ -2,7 +2,6 @@
 require_once('inc/tha-theme-hooks.php');
 require_once('inc/mobile-detect.php');
 
-//global
 $pageUser = new Mobile_Detect;
 
 
@@ -100,6 +99,9 @@ function SEOheader(){
 ****************************************************************************************************************************************/
 add_filter('getMainContentView', 'getMainContentView');
 function getMainContentView($categoryNumber, $NewsPerCategory = 7){
+
+
+  $pageUser = new Mobile_Detect;
 	echo "<div class='category-place col-lg-12'>";
 
     	query_posts('cat='.$categoryNumber);
@@ -113,10 +115,24 @@ function getMainContentView($categoryNumber, $NewsPerCategory = 7){
     		echo "<div class='row'>";
     		echo "<div class='col-lg-12'><a itemprop='relatedLink' href='"; echo the_permalink(); echo "' title='"; the_title_attribute(); echo "' >";
 
-            if ( has_post_thumbnail() )
-            	the_post_thumbnail('bigpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl', 'alt' => get_the_excerpt()));
+            if ( has_post_thumbnail() ){
+              if ($pageUser->isMobile() || $pageUser->isTablet()){
 
-            else
+                  the_post_thumbnail('bigpromomobile',
+                    array('class' => 'thumbnail shadow img-responsive mobile',
+                          'itemprop' => 'thumbnailUrl',
+                          'alt' => get_the_excerpt()));
+
+              } else {
+
+                  the_post_thumbnail('bigpromo',
+                    array('class' => 'thumbnail shadow img-responsive',
+                          'itemprop' => 'thumbnailUrl',
+                          'alt' => get_the_excerpt()));
+
+              };
+
+            } else
             	//Jeżeli nie ma miniaturki, pobierz wypełniacz
             	get_the_post_thumbnail(1,'bigpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
 
@@ -130,11 +146,29 @@ function getMainContentView($categoryNumber, $NewsPerCategory = 7){
       			echo "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-6'>
       			<div class='text-center'><a itemprop='relatedLink' href='"; the_permalink(); echo "' title='"; the_title_attribute(); echo "'>";
 
-            	if ( has_post_thumbnail() )
-            		the_post_thumbnail('smallpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl', 'alt' => get_the_excerpt()));
+            	if ( has_post_thumbnail() ){
+
+              if ($pageUser->isMobile() || $pageUser->isTablet()){
+
+                  the_post_thumbnail('smallpromomobile',
+                    array('class' => 'thumbnail shadow img-responsive mobile',
+                          'itemprop' => 'thumbnailUrl',
+                          'alt' => get_the_excerpt()));
+
+              } else {
+
+                  the_post_thumbnail('smallpromo',
+                    array('class' => 'thumbnail shadow img-responsive',
+                          'itemprop' => 'thumbnailUrl',
+                          'alt' => get_the_excerpt()));
+
+              };
+
+            		//the_post_thumbnail('SmallPromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl', 'alt' => get_the_excerpt()));
+              }
             	else
             		//Jeżeli nie ma miniaturki, pobierz wypełniacz
-            		get_the_post_thumbnail(1,'smallpromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
+            		get_the_post_thumbnail(1,'SmallPromo', array('class' => 'thumbnail shadow img-responsive', 'itemprop' => 'thumbnailUrl'));
 
 
           		echo "<h2 itemprop='headline' class='article-h2'>"; the_title(); echo "</h2></a></div></div>"; //</div>
