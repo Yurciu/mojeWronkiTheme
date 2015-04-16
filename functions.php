@@ -2,6 +2,11 @@
 require_once('inc/tha-theme-hooks.php');
 require_once('inc/mobile-detect.php');
 
+//global
+$pageUser = new Mobile_Detect;
+
+
+
 /* Custom ads (iframes)
 ****************************************************************************************************************************************/
 

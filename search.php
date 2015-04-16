@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_header('mobile');
+    else get_header();
+?>
 
 <?php
 

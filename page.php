@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_header('mobile');
+    else get_header();
+?>
 
 <?php tha_content_before() ?>
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 col-lg-push-2 col-md-push-2 col-sm-push-3">
