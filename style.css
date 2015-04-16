@@ -244,7 +244,7 @@ img {
 .thumbnail > img,
 .thumbnail a > img,
 .textwidget ~ img,
-.textwidget ~ center ~ img,
+.textwidget > a > img,
 .entry img{
   display: block;
   max-width: 100%;

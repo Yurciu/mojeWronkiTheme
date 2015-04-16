@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_header('mobile');
+    else get_header();
+?>
+
 <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 col-lg-push-2 col-md-push-2 col-sm-push-3">
         <div class="news news-list">
 
@@ -29,4 +33,7 @@
 </div>
 <?php get_sidebar('left'); ?>
 <?php get_sidebar('right'); ?>
-<?php get_footer(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_footer('mobile');
+    else get_footer();
+?>

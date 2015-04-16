@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_header('mobile');
+    else get_header();
+?>
 
 <?php
 
@@ -25,7 +28,7 @@
         ?>
         <hr>
 
-        <ul class='menu text-center'>
+        <ul class='menu text-center list-unstyled'>
         <?php if (have_posts()) : while (have_posts()) : the_post();?>
             <li class='menu-item' id="post-<?php the_ID(); ?>">
                 <a itemprop='relatedLink' href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
@@ -41,4 +44,7 @@
 </div>
 <?php get_sidebar('left'); ?>
 <?php get_sidebar('right'); ?>
-<?php get_footer(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_footer('mobile');
+    else get_footer();
+?>
