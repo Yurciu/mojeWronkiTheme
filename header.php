@@ -70,7 +70,7 @@
     <?php wp_head(); ?>
 
 </head>
-<body class='container spraybg' itemscope itemtype="http://schema.org/WebPage">
+<body class='container spraybg' itemscope itemtype="http://schema.org/WebPage" onload='includeAds();'>
 <?php tha_body_top();?>
 <?php tha_header_before(); ?>
 <div class='row header text-center' id='header'>
@@ -83,12 +83,12 @@
 
   <div class='col-lg-1 hidden-md hidden-sm hidden-xs'></div>
   <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
-  <iframe src="//s.mojewronki.pl/public/bramy/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
+  <iframe class='iframeAdd' loadsrc="//s.mojewronki.pl/public/bramy/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
   </div>
   <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
   </div>
   <div class='col-lg-3  col-md-4 col-sm-12 col-xs-12 top-buffer-obiect'>
-  <iframe src="//s.mojewronki.pl/public/omega/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
+  <iframe class='iframeAdd' loadsrc="//s.mojewronki.pl/public/omega/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
   </div>
   <?php tha_header_bottom(); ?>
 </div>
