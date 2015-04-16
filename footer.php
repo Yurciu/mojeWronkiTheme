@@ -69,19 +69,6 @@ function zamknijCookie() {
 
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-<script>
-
-
-function includeAds () {
-    var iframes;
-  iframes = document.getElementsByClassName('iframeAdd');
-
-  for (var i = iframes.length - 1; i >= 0; i--) {
-    iframes[i].src = iframes[i].getAttribute('loadsrc');
-  };
-}
-</script>
-
 <?php tha_footer_after(); ?>
 
 <?php tha_body_bottom(); ?>
