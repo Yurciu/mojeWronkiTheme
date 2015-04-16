@@ -1,7 +1,8 @@
 </div>
 
 
-
+<link rel="stylesheet" href="//localhost/wp-content/themes/wronczanie/ench.css" type="text/css" media="none" onload="if(media!='all')media='all'"/>
+<noscript><link rel="stylesheet" href="//localhost/wp-content/themes/wronczanie/ench.css"></noscript>
 <div class="row footer text-center" itemscope itemtype='https://schema.org/Organization'>
   <a class='arrow-link hidden-print' rel="nofollow" href="<?php add_query_arg( $wp->query_string, '', home_url( $wp->request ) ); ?>#header">
     <div class="shadow arrow">^</div>
@@ -74,6 +75,8 @@ function zamknijCookie() {
 <?php
 if(!isset($_COOKIE['cookie'])) echo "
 <div class='cookies text-center hidden-print hidden-xs'><button class='cookieButton' onclick='zamknijCookie();'>Akceptuje!</button><p>Portal mojeWronki.pl wykorzystuje pliki cookies do przechowywania treści na Twoim komputerze. <span class='hidden-xs'>Pomagają nam jeszcze lepiej informować Ciebie co się dzieje w gminie. <br /> <a href='http://ciasteczka.eu/#jak-wylaczyc-ciasteczka' rel='nofollow'/>Cookies statystyczne, reklamowe i funkcionalne w każdej chwili możesz wyłączyć w swojej przeglądarce.</a></span><br /> </p></div>"; ?>
+
+
 
 <?php tha_body_bottom(); ?>
 <?php wp_footer(); ?>
