@@ -64,4 +64,7 @@ if ($pageUser->isMobile() || $pageUser->isTablet() ) get_header('mobile');
 </div>
 <?php get_sidebar('left'); ?>
 <?php get_sidebar('right'); ?>
-<?php get_footer(); ?>
+<?php
+if ($pageUser->isMobile() || $pageUser->isTablet() ) get_footer('mobile');
+    else get_footer();
+?>
