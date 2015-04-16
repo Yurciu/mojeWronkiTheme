@@ -8,7 +8,7 @@
     <?php generalSEOElements(); ?>
     <?php SEOheader(); ?>
 
-    <link rel="stylesheet" href="//mojewronki.pl/wp-content/themes/wronczanie/style.css" type="text/css" />
+    <link rel="stylesheet" href="//localhost/wp-content/themes/wronczanie/style.css" type="text/css" />
     <link rel="icon"  href="//mojewronki.pl/favicon.ico" />
 
  <script>
@@ -26,12 +26,42 @@
         //Jeżeli istnieje opcja importu czcionek, zassaj je
         if(Modernizr.fontface) {
             WebFont.load({
-                google: {
-                    families: ['Alegreya+Sans:500:latin-ext','Alegreya:700:latin-ext']
+                custom: {
+                    families: ['Alegreya Sans','Alegreya']
                 }
             });
         }
     </script>
+
+    <style>
+        /* alegreya-700 - latin-ext */
+@font-face {
+  font-family: 'Alegreya';
+  font-style: normal;
+  font-weight: 700;
+  src: url('//fonts.mojewronki.pl/alegreya/alegreya-v7-latin-ext-700.eot'); /* IE9 Compat Modes */
+  src: local('Alegreya Bold'), local('Alegreya-Bold'),
+       url('//fonts.mojewronki.pl/alegreya/alegreya-v7-latin-ext-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('//fonts.mojewronki.pl/alegreya/alegreya-v7-latin-ext-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('//fonts.mojewronki.pl/alegreya/alegreya-v7-latin-ext-700.woff') format('woff'), /* Modern Browsers */
+       url('//fonts.mojewronki.pl/alegreya/alegreya-v7-latin-ext-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('//fonts.mojewronki.pl/alegreya/alegreya-v7-latin-ext-700.svg#Alegreya') format('svg'); /* Legacy iOS */
+}
+
+/* alegreya-sans-500 - latin-ext */
+@font-face {
+  font-family: 'Alegreya Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('//fonts.mojewronki.pl/alegreya/alegreya-sans-v3-latin-ext-500.eot'); /* IE9 Compat Modes */
+  src: local('Alegreya Sans Medium'), local('AlegreyaSans-Medium'),
+       url('//fonts.mojewronki.pl/alegreyaSans/alegreya-sans-v3-latin-ext-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('//fonts.mojewronki.pl/alegreyaSans/alegreya-sans-v3-latin-ext-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('//fonts.mojewronki.pl/alegreyaSans/alegreya-sans-v3-latin-ext-500.woff') format('woff'), /* Modern Browsers */
+       url('//fonts.mojewronki.pl/alegreyaSans/alegreya-sans-v3-latin-ext-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('//fonts.mojewronki.pl/alegreyaSans/alegreya-sans-v3-latin-ext-500.svg#AlegreyaSans') format('svg'); /* Legacy iOS */
+}
+    </style>
 
     <script type="application/ld+json">
         { "@context": "http://schema.org", "@type": "WebSite", "url": "http://mojewronki.pl/", "potentialAction": { "@type": "SearchAction", "target": "http://mojewronki.pl/?s={search_term_string}", "query-input": "required name=search_term_string" }}
