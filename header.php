@@ -8,7 +8,7 @@
     <?php generalSEOElements(); ?>
     <?php SEOheader(); ?>
 
-    <link rel="stylesheet" href="//localhost/wp-content/themes/wronczanie/style.css" type="text/css" />
+    <link rel="stylesheet" href="//mojewronki.pl/wp-content/themes/wronczanie/style.css" type="text/css" />
     <link rel="icon"  href="//mojewronki.pl/favicon.ico" />
 
  <script>
