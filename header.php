@@ -82,14 +82,33 @@
     </div>
 
   <div class='col-lg-1 hidden-md hidden-sm hidden-xs'></div>
-  <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
+
+    <?php if (is_active_sidebar('left_top_ad')) : ?>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
+        <?php dynamic_sitebar('left_top_ad');?>
+    </div>
+    <?php endif;?>
+
+    <?php if (is_active_sidebar('middle_top_ad')) : ?>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
+        <?php dynamic_sitebar('middle_top_ad');?>
+    </div>
+    <?php endif;?>
+
+    <?php if (is_active_sidebar('right_top_ad')) : ?>
+    <div class='col-lg-3 col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
+        <?php dynamic_sitebar('right_top_ad');?>
+    </div>
+    <?php endif;?>
+
+<!--   <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
   <iframe class='iframeAdd' loadsrc="//s.mojewronki.pl/public/bramy/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
   </div>
   <div class='col-lg-3  col-md-4 col-sm-6 col-xs-12 top-buffer-obiect'>
   </div>
   <div class='col-lg-3  col-md-4 col-sm-12 col-xs-12 top-buffer-obiect'>
   <iframe class='iframeAdd' loadsrc="//s.mojewronki.pl/public/omega/start.html" width="260" height="100" frameborder="0" scrolling="no" allowTransparency="true"></iframe>
-  </div>
+  </div> -->
   <?php tha_header_bottom(); ?>
 </div>
 <?php tha_header_after(); ?>
