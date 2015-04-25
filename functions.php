@@ -38,8 +38,7 @@ function generalSEOElements(){
   <meta property="og:locale" content="pl_PL">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="mojeWronki">
-  <meta property='og:url' content='http://mojewronki.pl'/>
-  <meta property="article:publisher" content="https://www.facebook.com/mojewronki">
+
   <link href="https://plus.google.com/103654230087671023091" rel="publisher" />
   <meta name="alexaVerifyID" content="Uv5ngd8fswTM68vycTm2-PkuF2w"/>
   <meta name="msvalidate.01" content="74B7F74201C2FF6A9B104A9D8FCE92F7" />
@@ -56,10 +55,12 @@ function SEOheader(){
       echo "<meta property='og:description' content='"; echo bloginfo('description'); echo "'/>";
       echo "<meta name='description' content='";echo bloginfo('description'); echo "'>";
       echo "<meta name='robots' content='index, follow' />";
+      echo "<meta property='og:url' content='http://mojewronki.pl'/>";
   }
 
 
   if(is_single()){
+    echo "<meta property='og:url' content='".get_permalink()."'/>";
     echo "<title>mojeWronki.pl";echo ' | '; echo the_title() ;echo"</title>";
     echo "<meta property='og:title' content='mojeWronki.pl | ";echo the_title(); echo"'/>";
     $desc = substr(wp_strip_all_tags(get_post_field('post_content', $post->ID)),0,125);
@@ -73,9 +74,18 @@ function SEOheader(){
       echo "<meta name='og:description' content='"; echo $desc; echo "...'>";
     }
 
-    if(has_post_thumbnail())
+    if(has_post_thumbnail()){
       echo "<meta property='og:image' content='".wp_get_attachment_url( get_post_thumbnail_id($post->ID) )."' />";
-        else echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
+      echo "<meta property='og:image:type' content='image/jpeg' />";
+      echo "<meta property='og:image:width' content='653' />";
+      echo "<meta property='og:image:height' content='404' />";
+      }
+        else {
+          echo "<meta property='og:image' content='http://s.mojewronki.pl/2015/01/Lokalny-portal-informacyjny.png' />";
+          echo "<meta property='og:image:width' content='200' />";
+          echo "<meta property='og:image:height' content='200' />";
+        }
+
     }
 
     if(is_front_page() || is_category()){
