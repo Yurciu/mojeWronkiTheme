@@ -26,8 +26,8 @@ $blogusers = get_users( array( 'role' => 'administrator', 'fields' => array('ID'
 shuffle($blogusers);
 $ediOffice = count($blogusers);
 foreach ($blogusers as $user){
-if($ediOffice >= 4){
-  echo "<div class='col-lg-3 col-sm-3 col-xs-6' itemprop='employee'>". officeBase64Thumb($user->ID, "avatar-64")."<h5>" . esc_html( $user->display_name ) . "</h5></div>";
+if($ediOffice >= 3){
+  echo "<div class='col-lg-4 col-sm-4 col-xs-6' itemprop='employee'>". officeBase64Thumb($user->ID, "avatar-64")."<h5>" . esc_html( $user->display_name ) . "</h5></div>";
 }
   else{
 
