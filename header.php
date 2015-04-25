@@ -1,6 +1,6 @@
 ﻿<!doctype html>
 <?php tha_html_before(); ?>
-<html class="no-js" lang='pl_PL' xmlns:fb='http://ogp.me/ns/fb#' prefix='og: http://ogp.me/ns#'>
+<html class="no-js" lang='pl_PL' xmlns:fb='http://ogp.me/ns/fb#' prefix='og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article:  http://ogp.me/ns/article#'>
 <head>
     <?php tha_head_top(); ?>
     <meta charset="<?php echo bloginfo('charset');?>">
